@@ -167,7 +167,8 @@ Destaques da modelagem:
 
 - `seguidas` é um autorrelacionamento N:N de `usuarios` (seguidor e seguido).
 - A senha é armazenada como hash (`senha_hash_usuario`), nunca em texto puro.
-- Chats podem ser diretos ou em grupo (`tipos_chat`), e contas podem ser públicas ou privadas (`tipo_conta_usuario`), com participantes em tabela associativa.
+- Chats podem ser diretos ou em grupo (`tipos_chat`), com participantes em tabela associativa.
+- Contas podem ser públicas ou privadas (`tipo_conta_usuario`).
 
 ## Licença
 
