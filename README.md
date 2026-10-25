@@ -17,9 +17,12 @@ Banco para gerenciar a Copa: grupos, seleções, jogadores, estádios, partidas 
 
 | Arquivo | Descrição |
 |---|---|
-| [schema.sql](copa-do-mundo-2026/schema.sql) | Cria o banco `copa_mundo_2026` com todas as tabelas, chaves primárias e estrangeiras |
-| [atualiza_jogadores.sql](copa-do-mundo-2026/atualiza_jogadores.sql) | Atualiza os dados de vários jogadores em um único `UPDATE` com `JOIN` em uma tabela derivada (`UNION ALL`). Escrito para uma versão posterior do banco, que tem altura e peso dos jogadores |
+| [01_schema.sql](copa-do-mundo-2026/01_schema.sql) | Cria o banco `copa_mundo_2026` com todas as tabelas, chaves primárias e estrangeiras |
+| [02_adiciona_altura_peso.sql](copa-do-mundo-2026/02_adiciona_altura_peso.sql) | `ALTER TABLE` que adiciona altura e peso aos jogadores |
+| [03_atualiza_jogadores.sql](copa-do-mundo-2026/03_atualiza_jogadores.sql) | Atualiza os dados de vários jogadores já cadastrados em um único `UPDATE` com `JOIN` em uma tabela derivada (`UNION ALL`) |
 | [modelo.mwb](copa-do-mundo-2026/modelo.mwb) | Modelo no MySQL Workbench |
+
+Para montar o banco, execute os scripts na ordem numérica.
 
 ```mermaid
 erDiagram
@@ -49,6 +52,8 @@ erDiagram
         int numero_camisa_jogador
         date data_nascimento_jogador
         varchar foto_jogador
+        decimal altura_jogador
+        decimal peso_jogador
         int id_selecao FK
     }
     Estadio {

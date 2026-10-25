@@ -1,4 +1,10 @@
-UPDATE jogadores
+USE copa_mundo_2026;
+
+-- =========================================
+-- Atualiza os dados dos jogadores já cadastrados,
+-- buscando pelo nome (requer 02_adiciona_altura_peso.sql)
+-- =========================================
+UPDATE Jogador
 JOIN (
     SELECT 'Alisson Becker' AS nome, 'Goleiro' AS posicao, 1 AS camisa, '1992-10-02' AS nascimento, 'img/jogadores/alisson.jpg' AS foto, 1.93 AS altura, 91.0 AS peso, 9 AS selecao
     UNION ALL SELECT 'Weverton', 'Goleiro', 23, '1987-12-13', 'img/jogadores/weverton.jpg', 1.88, 84.0, 9
@@ -30,13 +36,13 @@ JOIN (
     UNION ALL SELECT 'Emiliano Martínez', 'Goleiro', 23, '1992-09-02', 'img/jogadores/dibu.jpg', 1.95, 88.0, 37
     UNION ALL SELECT 'Enzo Fernández', 'Meia', 24, '2001-01-17', NULL, 1.78, 76.0, 37
 ) AS novos
-ON jogadores.nome_jogador = novos.nome
+ON Jogador.nome_jogador = novos.nome
 
 SET
-    jogadores.posicao_jogador = novos.posicao,
-    jogadores.numero_camisa_jogador = novos.camisa,
-    jogadores.data_nasc_jogador = novos.nascimento,
-    jogadores.foto_jogador = novos.foto,
-    jogadores.altura_jogador = novos.altura,
-    jogadores.peso_jogador = novos.peso,
-    jogadores.id_selecao = novos.selecao;
+    Jogador.posicao_jogador = novos.posicao,
+    Jogador.numero_camisa_jogador = novos.camisa,
+    Jogador.data_nascimento_jogador = novos.nascimento,
+    Jogador.foto_jogador = novos.foto,
+    Jogador.altura_jogador = novos.altura,
+    Jogador.peso_jogador = novos.peso,
+    Jogador.id_selecao = novos.selecao;
